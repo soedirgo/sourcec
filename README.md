@@ -2,6 +2,8 @@
 
 This compiler takes a Source §1 program represented in ESTree JSON format as input and produces LLVM IR as output, which you can run in e.g. [llvm-wasm](https://soedirgo.github.io/llvm-wasm/).
 
+sourcec compiles a subset of Source §1. The specification can be found [here](https://github.com/soedirgo/sourcec/blob/main/source_1_sourcec.pdf).
+
 ## Prerequisites
 #### Install LLVM 11
 If you are on macOS, you can run the following using `brew`:
@@ -42,8 +44,6 @@ cat main.js | scripts/parse | cargo run > main.ll
 
 You can now copy the contents of `main.ll` and run it on e.g. [llvm-wasm](https://soedirgo.github.io/llvm-wasm/). Note that the `.ll` module is set to target `wasm32-unknown-wasi` and a particular target data layout to ensure 32 bit pointer size, so you'll need more work to run it directly on your machine with e.g. `lli` or `llc`.
 ## Developing
-sourcec compiles a subset of Source §1 which is specified [here](https://github.com/soedirgo/sourcec/blob/main/source_1_sourcec.pdf).
-
 Testing was done in an ad-hoc manner. For an extensive test suite/example programs you might want to check out [llvm-sauce](https://github.com/jiachen247/llvm-sauce).
 
 The repo is structured like so:
